@@ -17,13 +17,25 @@
 				form.addEventListener("submit", setSearchEngine);
 
 
-				if (query.value.trim() === '') {
-					alert("Oops! You didn't enter anything to search for!");
+				// if (query.value.trim() === '') {
+				// 	alert("Oops! You didn't enter anything to search for!");
+				// 	event.preventDefault();
+				// } else if (!buttonSelected){
+				// 	alert("Oops! Which search engine do you want to use?");
+				// 	event.preventDefault();
+				// }
+
+
+			const errorBox = document.getElementById('error-box');
+            const errorMsg = document.getElementById('error-msg');
+			if (query.value.trim() === '') {
+					errorMsg.innerHTML = "Oops! You didn't enter anything to search for!";
 					event.preventDefault();
 				} else if (!buttonSelected){
-					alert("Oops! Which search engine do you want to use?");
+					errorMsg.innerHTML = "Oops! Which search engine do you want to use?";
 					event.preventDefault();
 				}
+
 
 				let url = actions[buttonSelected.value];
 				form.action = url;
@@ -54,7 +66,7 @@
 	</form>
 
 	<div id = "error-box">
-		<p id = "error-msg"></p>
+	  <p id = "error-msg"></p>
 	</div>
 
 </body>
